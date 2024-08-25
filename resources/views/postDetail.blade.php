@@ -9,7 +9,7 @@
       <div id="entry">
         <div id="post-top">
           <h3 id="post-title">{{ $post['title_' . \App::getLocale()] }}</h3>
-          <div class="post-meta"> <span class="posting-date">{{ $post->created_at->format('F j, Y') }}</span> </div>
+          <div class="post-meta"> <span class="posting-date">{{ $post->created_at->format('F j, Y') }}</span> <span> <i class="fa-regular fa-eye"></i> {{ $post->view }}</span></div>
         </div>
         <div class="entry-content">
           <img src="{{ asset('asset/img/' . $post->image)  }}" alt="" width="650px" height="600px" />

@@ -42,7 +42,7 @@
                         <div class="entry-meta entry-header">
                             <span class="published">{{ $posts->created_at->format('F j, Y') }}</span>
                             <span class="seperator">,</span>
-                            <span class="comment_number"><a href="#">21 Comments</a></span>
+                            <span class="comment_number"><a href="#">{{ $posts->view }} Views</a></span>
                         </div>
                     </li>
                 @endforeach

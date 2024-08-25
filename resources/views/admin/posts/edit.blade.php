@@ -11,19 +11,41 @@
             @method('PUT')
 
             <div class="form-group">
-                <label>Post Title</label>
-                <input type="text" name="title" class="form-control" value="{{ $post->title }}">
+                <label>Post Title UZ</label>
+                <input type="text" name="title_uz" class="form-control" value="{{ $post->title_uz }}">
             </div>
 
             <div class="form-group">
-                <label>Post Description</label>
-                <textarea name="content" class="form-control">{{ $post->content }}</textarea>
+                <label>Post Title RU</label>
+                <input type="text" name="title_ru" class="form-control" value="{{ $post->title_ru }}">
+            </div>
+
+
+            <div class="form-group">
+                <label>Post Title EN</label>
+                <input type="text" name="title_en" class="form-control" value="{{ $post->title_en }}">
+            </div>
+
+
+            <div class="form-group">
+                <label>Post Description UZ</label>
+                <textarea name="content_uz" class="form-control">{{ $post->content_uz }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Post Description RU</label>
+                <textarea name="content_ru" class="form-control">{{ $post->content_ru }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Post Description EN</label>
+                <textarea name="content_en" class="form-control">{{ $post->content_en }}</textarea>
             </div>
 
             <div class="form-group">
                 <label>Post Picture</label>
                 <input type="file" name="image" class="form-control">
-                <img src="{{ asset('asset/img/' . $post->image) }}" alt="{{ $post->title }}" style="width: 100px; height: 100px;">
+                <img src="{{ asset('asset/img/' . $post->image) }}" alt="" style="width: 100px; height: 100px;">
             </div>
 
             <div class="form-group">

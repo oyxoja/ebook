@@ -3,7 +3,7 @@
 
 @section('content')
   <div id="outer-wrapper">
-    @include('sections.slider')
+    <!-- @include('sections.slider') -->
     <div class="clear"></div>
     <div id="featured">
     <h4 id="featured-title"><span>@lang('words.featured')</span></h4>

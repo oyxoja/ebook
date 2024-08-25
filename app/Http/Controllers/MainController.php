@@ -45,6 +45,8 @@ class MainController extends Controller
         $post = Post::where('slug',$slug)->first();
         $recent_posts = Post::limit(5)->latest()->get();
         $recent_tags = Tag::limit(10)->latest()->get();
+        $post->increment('view');
+        $post->save();
         return view('postDetail', compact('post', 'recent_posts', 'recent_tags', 'ad'));
 }
 

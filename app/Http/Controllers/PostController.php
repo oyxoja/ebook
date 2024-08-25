@@ -42,8 +42,8 @@ class PostController extends Controller
             'content_ru' => 'required',
             'content_en' => 'required',
             'image' => 'required',
-            'book' => 'required',    
-            'category_id' => 'required'
+            'book' => 'nullable|file',    
+            'category_id' => 'nullable'
         ]);
     
         $requestData = $request->all();
@@ -108,8 +108,8 @@ class PostController extends Controller
             'content_en' => 'required',
             'image' => 'nullable|image',
             'book' => 'nullable|file',
-            'category_id' => 'required',
-            'tags'=>'required'
+            'category_id' => 'nullable',
+            'tags'=>'nullable'
         ]);
     
        
