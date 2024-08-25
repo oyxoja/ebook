@@ -3,10 +3,21 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4>{{ $post->title }}</h4>
+        <h4>{{ $post->title_uz }}</h4>
+    </div>
+    <div class="card-header">
+        <h4>{{ $post->title_ru }}</h4>
+    </div>
+    <div class="card-header">
+        <h4>{{ $post->title_en }}</h4>
     </div>
     <div class="card-body">
-        <p>{{ $post->content }}</p>
+        <label>Description UZ</label>
+        <p>{{ $post->content_uz }}</p>
+        <label>Description RU</label>
+        <p>{{ $post->content_ru }}</p>
+        <label>Description EN</label>
+        <p>{{ $post->content_en }}</p>
         <img src="{{ asset('asset/img/' . $post->image) }}" alt="{{ $post->title }}" style="width: 300px; height: 300px;">
        
         <p>

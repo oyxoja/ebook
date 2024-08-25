@@ -14,16 +14,14 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(){
         return view ('admin.posts.index', ['posts'=>Post::paginate(5)]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
+    public function create(){
         $tags = Tag::all();
         $categories = Category::all();
         return view (' admin.posts.create',compact('tags', 'categories'));
@@ -32,8 +30,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $request->validate([
             'title_uz' => 'required',
             'title_ru' => 'required',
@@ -42,24 +39,26 @@ class PostController extends Controller
             'content_ru' => 'required',
             'content_en' => 'required',
             'image' => 'required',
-            'book' => 'nullable|file',    
-            'category_id' => 'nullable'
+            'book' => 'required',    
+            'category_id' => 'required'
         ]);
     
         $requestData = $request->all();
     
     
-        if ($request->hasFile('image')) {
+        if($request->hasFile('image')){
             $image = $request->file('image');
-            $image_name = time() . '_image.' . $image->getClientOriginalExtension();
+            $image_name = time(). '_image.'.$image->getClientOriginalExtension();
             $image->move(public_path('asset/img'), $image_name); 
             $requestData['image'] = $image_name;
         }
+
+       
     
       
-        if ($request->hasFile('book')) {
+        if($request->hasFile('book')){
             $book = $request->file('book');
-            $book_name = time() . '_book.' . $book->getClientOriginalExtension();
+            $book_name = time(). '_book.'.$book->getClientOriginalExtension();
             $book->move(public_path('asset/files'), $book_name);
             $requestData['book'] = $book_name;
         }
@@ -106,9 +105,9 @@ class PostController extends Controller
             'content_uz' => 'required',
             'content_ru' => 'required',
             'content_en' => 'required',
-            'image' => 'nullable|image',
-            'book' => 'nullable|file',
-            'category_id' => 'nullable',
+            'image' => 'required',
+            'book' => 'required',
+            'category_id' => 'required',
             'tags'=>'nullable'
         ]);
     
@@ -123,29 +122,29 @@ class PostController extends Controller
         }
     
        
-        if ($request->hasFile('image')) {
+        if($request->hasFile('image')){
          
-            if ($post->image && file_exists(public_path('asset/img/' . $post->image))) {
-                unlink(public_path('asset/img/' . $post->image));
+            if($post->image && file_exists(public_path('asset/img/'.$post->image))){
+                unlink(public_path('asset/img/'.$post->image));
             }
     
            
             $image = $request->file('image');
-            $image_name = time() . '_image.' . $image->getClientOriginalExtension();
+            $image_name = time().'_image.'.$image->getClientOriginalExtension();
             $image->move(public_path('asset/img'), $image_name);
             $requestData['image'] = $image_name;
         }
     
         
-        if ($request->hasFile('book')) {
+        if($request->hasFile('book')){
       
-            if ($post->book && file_exists(public_path('asset/files/' . $post->book))) {
-                unlink(public_path('asset/files/' . $post->book));
+            if($post->book && file_exists(public_path('asset/files/'.$post->book))){
+                unlink(public_path('asset/files/'.$post->book));
             }
     
        
             $book = $request->file('book');
-            $book_name = time() . '_book.' . $book->getClientOriginalExtension();
+            $book_name = time(). '_book.'.$book->getClientOriginalExtension();
             $book->move(public_path('asset/files'), $book_name);
             $requestData['book'] = $book_name;
         }
@@ -168,12 +167,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if ($post->image && file_exists(public_path('asset/img/'.$post->image))){
+        if($post->image && file_exists(public_path('asset/img/'.$post->image))){
 
             unlink(public_path('asset/img/'.$post->image));
 
         }
-        if ($post->book && file_exists(public_path('asset/files/' . $post->book))){
+        if($post->book && file_exists(public_path('asset/files/'.$post->book))){
 
             unlink(public_path('asset/files/'.$post->book));
 

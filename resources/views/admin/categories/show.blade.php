@@ -12,8 +12,13 @@
                 <p>{{ $category->id }}</p>
             </div>
             <div class="form-group">
-                <label>Category Name</label>
-                <p>{{ $category->category }}</p>
+                <label>Category Name UZ</label>
+                <p>{{ $category->category_uz }}</p>
+                <label>Category Name RU</label>
+                <p>{{ $category->category_ru }}</p>
+                <label>Category Name EN</label>
+                <p>{{ $category->category_en }}</p>
+
             </div>
             <div class="form-group">
                 <label>Slug</label>

@@ -28,8 +28,7 @@ class MainController extends Controller
 
 
 
-    public function categoryPosts($slug)
-{       
+    public function categoryPosts($slug){       
         $ad= Ad::first();
         $category= Category::where('slug',$slug)->first();
         $posts = Post::limit(4)->get();
@@ -40,8 +39,8 @@ class MainController extends Controller
         return view('categoryPosts', compact('posts', 'ads_posts', 'recent_posts', 'popular_posts', 'recent_tags', 'category', 'ad'));
 }
 
-    public function postDetail($slug)
-{       $ad= Ad::first();
+    public function postDetail($slug){       
+        $ad= Ad::first();
         $post = Post::where('slug',$slug)->first();
         $recent_posts = Post::limit(5)->latest()->get();
         $recent_tags = Tag::limit(10)->latest()->get();
@@ -50,8 +49,7 @@ class MainController extends Controller
         return view('postDetail', compact('post', 'recent_posts', 'recent_tags', 'ad'));
 }
 
-    public function contact()
-{       
+    public function contact(){       
         $ad= Ad::first();
         $recent_posts = Post::limit(5)->latest()->get();
         $recent_tags = Tag::limit(10)->latest()->get();
@@ -59,12 +57,15 @@ class MainController extends Controller
         
 }
 
-public function upload(Request $request)
-    {
-        if($request->hasFile('upload')) {
+public function upload(Request $request){
+        if($request->hasFile('upload')){
+
             $originName = $request->file('upload')->getClientOriginalName();
+
             $fileName = pathinfo($originName, PATHINFO_FILENAME);
+
             $extension = $request->file('upload')->getClientOriginalExtension();
+
             $fileName = $fileName.'_'.time().'.'.$extension;
 
             $request->file('upload')->move(public_path('asset/img'), $fileName);
@@ -81,9 +82,13 @@ public function upload(Request $request)
 
     public function search(Request $request){
         $key = $request -> key;
+
         $ad= Ad::first();
+
         $recent_posts = Post::limit(5)->latest()->get();
+
         $recent_tags = Tag::limit(10)->latest()->get();
+
         $posts = Post::where('title_en', 'like', '%'.$key.'%')->orWhere('content_en', 'like', '%'.$key.'%')->orWhere('title_ru', 'like', '%'.$key.'%')->orWhere('title_uz', 'like', '%'.$key.'%')->orWhere('content_ru', 'like', '%'.$key.'%')->orWhere('content_uz', 'like', '%'.$key.'%')->paginate();
         return view ('search', compact('posts', 'recent_posts', 'recent_tags','ad'));
     }
