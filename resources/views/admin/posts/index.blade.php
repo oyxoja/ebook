@@ -61,7 +61,10 @@
                   </div>
                   <div class="card-footer text-right">
                     <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
+
+
+                    {{$posts->links()}}
+                      <!-- <ul class="pagination mb-0">
                         <li class="page-item disabled">
                           <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
                         </li>
@@ -74,7 +77,7 @@
                         <li class="page-item">
                           <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </nav>
                   </div>
                 </div>

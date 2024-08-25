@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
             $ad = \App\Models\Ad::first();
             $view->with(compact('categories', 'ad'));
         });
+
+        Paginator::useBootstrap();
 
 
 
