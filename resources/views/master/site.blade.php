@@ -69,9 +69,9 @@
     <div id="header">
       <div id="header-top">
         <h2 id="logo">
-          <a href="{{ route('home') }}" >
-            <img src="{{asset('asset/logo/logo1.png')}}" alt="" height="60px"; width="270px">
-          </a>
+          
+            <img src="{{asset('asset/logo/logotrs.png')}}" alt="" height="80px"; width="200px"; margin-bottom:20px;>
+         
         </h2>
 
         <form method="get" id="searchform" action="{{ route('search') }}" name="searchform">
@@ -86,14 +86,14 @@
         <div class="category-container">
 
         <ul class="sf-menu">
-    <!-- Home Link -->
+
     <li>
-        <a href="{{ route('index') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
+        <a href="{{ route('index') }}">
             @lang('words.home')
         </a>
     </li>
 
-    <!-- Category Links -->
+
     @foreach ($categories as $category)
         <li>
             <a href="{{ route('categoryPosts', ['slug' => $category->slug]) }}"
@@ -103,7 +103,6 @@
         </li>
     @endforeach
 
-    <!-- Contact Link -->
     <li>
         <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
             @lang('words.contact')
@@ -180,7 +179,7 @@
             <h6>@lang('words.quick')</h6>
             <ul class="quick_links">
               @foreach ($categories as $category)
-                <li><a href="#">{{ $category['category_'.\App::getLocale()] }}</a></li>
+                <li><a href="{{ route('categoryPosts', ['slug' => $category->slug]) }}">{{ $category['category_'.\App::getLocale()] }}</a></li>
               @endforeach
               
 

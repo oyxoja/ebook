@@ -97,19 +97,7 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
-        $request->validate([
-            'title_uz' => 'required',
-            'title_ru' => 'required',
-            'title_en' => 'required',
-            'content_uz' => 'required',
-            'content_ru' => 'required',
-            'content_en' => 'required',
-            'image' => 'required',
-            'book' => 'required',
-            'category_id' => 'required',
-            'tags'=>'nullable'
-        ]);
+
     
        
         $post = Post::findOrFail($id);

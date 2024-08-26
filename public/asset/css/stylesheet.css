@@ -233,12 +233,12 @@ h6 {
 	margin: 70px 0 0 0px;
 	position: relative;
 }
-#logo a {
-	background: url("images/logo.png") no-repeat;
+/* #logo a {
+	background: url("#") no-repeat;
 	display: block;
 	height: 35px;
 	width: 270px;
-}
+} */
 #searchform {
 	margin: 0;
 	position: absolute;

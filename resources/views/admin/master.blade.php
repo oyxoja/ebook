@@ -40,11 +40,7 @@
                         <li>
                             <form class="form-inline">
                                 <div class="search-element">
-                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"
-                                        data-width="200">
-                                    <button class="btn" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
+                                    
                                 </div>
                             </form>
                         </li>
@@ -66,7 +62,7 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html"> <img alt="image" src="{{ asset('temp/logo/trans_480x480.png')}}"
+                        <a href="{{ route('adminDashboard')}}"> <img alt="image" src="{{ asset('temp/logo/trans_480x480.png')}}"
                                 class="header-logo" />
                             <span class="logo-name">E-Book</span>
                         </a>

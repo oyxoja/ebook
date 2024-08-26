@@ -3,7 +3,7 @@
 
 @section('content')
   <div id="outer-wrapper">
-    <!-- @include('sections.slider') -->
+    @include('sections.slider')
     <div class="clear"></div>
     <div id="featured">
     <h4 id="featured-title"><span>@lang('words.featured')</span></h4>
@@ -17,7 +17,7 @@
                             <div class="image">
                                 <a href="{{ route('postDetail',$post->slug) }}"><img alt="{{ $post['title_'.\App::getLocale()] }}" src="{{ asset('asset/img/'.$post->image) }}" /></a>
                             </div>
-                            <h3><a href="{{ route('postDetail',$post->slug) }}">{{ $post['title_'.\App::getLocale()] }}</a></h3>
+                            <h3><a href="{{ route('postDetail',$post->slug) }}">{{  \Illuminate\Support\Str::words($post['title_'.\App::getLocale()], 5, '...') }}</a></h3>
                         </div>
                     </div>
                 @endforeach
